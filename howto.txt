@@ -1,0 +1,27 @@
+ref:
+http://en.wikibooks.org/wiki/Python_Programming/Extending_with_C
+
+=========== building ================
+developer1@dell-laptop1:~/py/c$ ./setup.py build
+running build
+running build_ext
+building 'hello' extension
+gcc -pthread -fno-strict-aliasing -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -fPIC -I/usr/include/python2.6 -c hellomodule.c -o build/temp.linux-i686-2.6/hellomodule.o
+gcc -pthread -shared -Wl,-O1 -Wl,-Bsymbolic-functions build/temp.linux-i686-2.6/hellomodule.o -o build/lib.linux-i686-2.6/hello.so
+developer1@dell-laptop1:~/py/c$ 
+
+developer1@dell-laptop1:~/py/c$ ls build/lib.linux-i686-2.6/hello.so  -l
+-rwxr-xr-x 1 developer1 developer1 15672 2013-08-16 20:32 build/lib.linux-i686-2.6/hello.so
+
+============== running =====================
+developer1@dell-laptop1:~/py/c/build/lib.linux-i686-2.6$ pwd
+/home/developer1/py/c/build/lib.linux-i686-2.6
+developer1@dell-laptop1:~/py/c/build/lib.linux-i686-2.6$ python
+Python 2.6.5 (r265:79063, Apr 16 2010, 13:09:56) 
+[GCC 4.4.3] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import hello
+>>> hello.say_hello('C')
+Hello C
+>>> 
+
