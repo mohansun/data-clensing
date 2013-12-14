@@ -1,0 +1,16 @@
+#--- init git
+git init
+
+#--- add and commit the source
+git add . 
+git commit -m 'initial add'
+
+#--- attach the remote git repo 
+git remote add origin https://github.com/mohansun/data-clensing
+
+#--- pull the remote branch so that local and remote are in sync
+git pull origin master
+
+#--- push this master branch to github
+git push  origin master
+
